@@ -28,4 +28,12 @@ module NestedForm
     end
   rescue LoadError
   end
+
+  begin
+    require 'bootstrap_form'
+    class BootstrapFormBuilder < ::BootstrapForm::FormBuilder
+      include ::NestedForm::BuilderMixin
+    end
+  rescue LoadError
+  end
 end
